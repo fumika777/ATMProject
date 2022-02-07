@@ -1,10 +1,12 @@
 package com.github.ATMproject;
 
+import com.github.ATMproject.entity.Account;
+
 import java.util.Hashtable;
 import java.util.Map;
 
-public class AccountRepository {
-    private static final Map<String,Account> accountRepository = new Hashtable<>();
+public class AccountRepositoryClass {
+    private static final Map<String, Account> accountRepository = new Hashtable<>();
 
     public Account addAccount(Account account){
         accountRepository.put(account.getAccountNumber(), account);

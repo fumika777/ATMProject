@@ -1,3 +1,5 @@
+INSERT INTO CLIENTS (CLIENT_ID) VALUES
+                                    (101201), (7012);
 
 INSERT INTO ACCOUNTS (ACCOUNT, BALANCE, CURRENCY, CLIENT_ID) VALUES
                                                                  ('40817810099910004000', 300000, 'RUR', 101201),
@@ -9,6 +11,3 @@ INSERT INTO CARDS (ACCOUNT, CARD, PIN) VALUES
                                            ('40817810099910004000', '4000 0012 3456 7899', 1012),
                                            ('40817810099910004301', '3232 3434 1212 8908', 6351),
                                            ('40817810099910004303', '7382 1038 0000 0000', 8212);
-
-INSERT INTO CLIENTS (CLIENT_ID) VALUES
-                                    (101201), (7012);

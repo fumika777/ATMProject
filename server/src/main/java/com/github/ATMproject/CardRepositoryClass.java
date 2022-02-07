@@ -1,10 +1,12 @@
 package com.github.ATMproject;
+import com.github.ATMproject.entity.Card;
+
 import java.util.Hashtable;
 import java.util.Map;
 
 
-public class CardRepository {
-    private static final Map<String,Card> cardRepository = new Hashtable<>();
+public class CardRepositoryClass {
+    private static final Map<String, Card> cardRepository = new Hashtable<>();
 
     public Card getCard(String cardNumber){
         return this.cardRepository.get(cardNumber);
