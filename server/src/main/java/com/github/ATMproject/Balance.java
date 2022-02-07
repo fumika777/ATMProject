@@ -4,21 +4,21 @@ import lombok.Data;
 
 @Data
 public class Balance {
-    private Number amount;
+    private int amount;
     private String currency;
 
     public Balance(){
         this.amount=0;
-        this.currency="";
+        this.currency="RUR";
     }
 
-    public Balance(Number amount, String currency){
+    public Balance(int amount, String currency){
         this.amount=amount;
         this.currency=currency;
     }
 
     public void getBalance(){
-        System.out.println(this.amount.toString() + " " + this.currency);
+        System.out.println(this.amount + " " + this.currency);
     }
 
     public void changeBalance(Balance balance){
