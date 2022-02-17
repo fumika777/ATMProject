@@ -8,3 +8,7 @@ target/
 *.iml
 *.ipr
 ./idea
+./
+/atm-ui/
+/client/*.iml
+/server/*.iml

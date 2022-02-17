@@ -1,5 +1,6 @@
 package com.github.ATMproject.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.Table;
 @Data
 @Entity
 @Table(name = "CLIENTS")
+@AllArgsConstructor
 public class Client {
     @Id
     @Column(name = "CLIENT_ID")
@@ -19,7 +21,4 @@ public class Client {
         this.clientID=System.currentTimeMillis();
     }
 
-    public Client(long clientID){
-        this.clientID=clientID;
-    }
 }

@@ -14,12 +14,34 @@ public class ClientService {
     }
 
     public Mono<String> checkPin (String cardNumber, int PIN) {
-        System.out.println("Дергается метод");
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
-                        .path("/loginClient")
+                        .path("/login")
                         .queryParam("cardNumber", cardNumber)
                         .queryParam("PIN",PIN)
+                        .build())
+                .retrieve()
+                .bodyToMono(String.class)
+                .onErrorResume(WebClientResponseException.class,
+                        ex -> ex.getRawStatusCode() == 404 ? Mono.empty() : Mono.error(ex));
+    }
+
+    public Mono<String> getBalance (String cardNumber) {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/getBalance")
+                        .queryParam("cardNumber", cardNumber)
+                        .build())
+                .retrieve()
+                .bodyToMono(String.class)
+                .onErrorResume(WebClientResponseException.class,
+                        ex -> ex.getRawStatusCode() == 404 ? Mono.empty() : Mono.error(ex));
+    }
+
+    public Mono<String> logout () {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/logout")
                         .build())
                 .retrieve()
                 .bodyToMono(String.class)

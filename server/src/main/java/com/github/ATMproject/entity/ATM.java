@@ -1,4 +1,4 @@
-package com.github.ATMproject;
+package com.github.ATMproject.entity;
 
 import lombok.Data;
 
