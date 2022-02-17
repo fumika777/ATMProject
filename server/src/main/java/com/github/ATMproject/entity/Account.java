@@ -1,14 +1,17 @@
 package com.github.ATMproject.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "ACCOUNTS")
 public class Account {
     @Id
+    @Column(name = "ACCOUNT")
     private String accountNumber;
     @Column(name = "BALANCE")
     private int balance;
@@ -16,9 +19,6 @@ public class Account {
     private String currency;
     @Column(name = "CLIENT_ID")
     private long clientID;
-
-    public Account() {
-    }
 
     public void getBalance(){
         System.out.println(this.balance + " " + this.currency);

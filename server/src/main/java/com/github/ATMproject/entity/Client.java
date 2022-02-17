@@ -2,6 +2,7 @@ package com.github.ATMproject.entity;
 
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,6 +12,7 @@ import javax.persistence.Table;
 @Table(name = "CLIENTS")
 public class Client {
     @Id
+    @Column(name = "CLIENT_ID")
     private long clientID;
 
     public Client() {
