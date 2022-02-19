@@ -8,13 +8,16 @@ import reactor.core.publisher.Mono;
 
 @Service
 public class ClientService {
-    private WebClient webClient;
+    private static WebClient webClient;
     public ClientService(){
         this.webClient= WebClient.create("http://localhost:8080");
     }
+    public ClientService(String baseURL){
+        this.webClient= WebClient.create(baseURL);
+    }
 
-    public Mono<String> checkPin (String cardNumber, int PIN) {
-        return this.webClient.get()
+    public static Mono<String> checkPin(String cardNumber, int PIN) {
+        return webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/login")
                         .queryParam("cardNumber", cardNumber)
@@ -26,8 +29,8 @@ public class ClientService {
                         ex -> ex.getRawStatusCode() == 404 ? Mono.empty() : Mono.error(ex));
     }
 
-    public Mono<String> getBalance (String cardNumber) {
-        return this.webClient.get()
+    public static Mono<String> getBalance(String cardNumber) {
+        return webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/getBalance")
                         .queryParam("cardNumber", cardNumber)
@@ -38,8 +41,8 @@ public class ClientService {
                         ex -> ex.getRawStatusCode() == 404 ? Mono.empty() : Mono.error(ex));
     }
 
-    public Mono<String> logout () {
-        return this.webClient.get()
+    public static Mono<String> logout() {
+        return webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/logout")
                         .build())
