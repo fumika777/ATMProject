@@ -1,13 +1,14 @@
 package com.github.ATMproject.controller;
 import com.github.ATMproject.services.ClientService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
 @AllArgsConstructor
 public class ClientRestController {
-    ClientService clientService;
+    private ClientService clientService;
 
     /**
      * Метод осуществляющмй логинство в систему

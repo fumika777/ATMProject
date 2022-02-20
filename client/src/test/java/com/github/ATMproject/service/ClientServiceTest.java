@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ServiceTest {
+public class ClientServiceTest {
 
     public static MockWebServer mockBackEnd;
     public ClientService clientService;

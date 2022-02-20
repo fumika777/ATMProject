@@ -9,6 +9,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class ClientService {
     private static WebClient webClient;
+
     public ClientService(){
         this.webClient= WebClient.create("http://localhost:8080");
     }
